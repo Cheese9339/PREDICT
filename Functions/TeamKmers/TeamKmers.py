@@ -7,8 +7,7 @@ from Functions.TeamKmers.Packages import Generate_KmersMotif_input
 from Functions.TeamKmers.Packages import SentToKmer2Motif
 from Functions.TeamKmers.Packages import CalculateMotifCoScore 
 
-def main():
-    # new_folder = "/home/hpc/chiayicheng/scratch/users/Kai/New_Kmer_Pipeline/Results/2025_02_24_TeamKmers01"
+def main(Motif=True):
     #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
         # 1. Copy "TeamKmers" folder(in "Demanded_Data" folder, old folder) to "Result" folder's new folder ##
     print("Dealing_with_folders...")
@@ -34,28 +33,29 @@ def main():
     print("Evaluate the co-occurrence Done!")
     print("=======================================================")
     #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
-
-    #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
-        ## 4. Generate Kmers2Motif input
-    print("Generate Kmers2Motif input...")
-    Generate_KmersMotif_input.main(new_folder, CS_DF)
-    print("Generate Kmers2Motif input Done!")
-    print("=======================================================")
-    #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
-
-    #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
-        ## 5. Sent to Kmer2Motif
-    print("Sent to Kmer2Motif input...")
-    K1_OutPutDF, K2_OutPutDF, K1_K2Mfolder, K2_K2Mfolder = SentToKmer2Motif.main(new_folder)
-    print("Sent to Kmer2Motif Done!")
-    #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
-
-    #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
-        ## 6. Calculate Motifs' co-occurrence score (max = 1)
-    print("Calculate Motifs' co-occurrence score...")
-    result = CalculateMotifCoScore.main(new_folder, CS_DF, K1_OutPutDF, K2_OutPutDF)
-    print("Calculate Motifs' co-occurrence score Done!")
-    #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
     
+    if Motif == True:
+        #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
+            ## 4. Generate Kmers2Motif input
+        print("Generate Kmers2Motif input...")
+        Generate_KmersMotif_input.main(new_folder, CS_DF)
+        print("Generate Kmers2Motif input Done!")
+        print("=======================================================")
+        #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
+
+        #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
+            ## 5. Sent to Kmer2Motif
+        print("Sent to Kmer2Motif input...")
+        K1_OutPutDF, K2_OutPutDF, K1_K2Mfolder, K2_K2Mfolder = SentToKmer2Motif.main(new_folder)
+        print("Sent to Kmer2Motif Done!")
+        #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
+
+        #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
+            ## 6. Calculate Motifs' co-occurrence score (max = 1)
+        print("Calculate Motifs' co-occurrence score...")
+        result = CalculateMotifCoScore.main(new_folder, CS_DF, K1_OutPutDF, K2_OutPutDF)
+        print("Calculate Motifs' co-occurrence score Done!")
+        #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
+        
 if __name__ == "__main__":
     main()

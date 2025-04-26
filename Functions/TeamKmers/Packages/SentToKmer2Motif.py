@@ -25,15 +25,3 @@ def main(new_folder):
     K2_K2Mfolder, K2_OutPutDF = Kmer2Motif.main(TopKmers = 1, KeepTopMotifs = 0.5, ScoreCutOff = 0.9)
     return K1_OutPutDF, K2_OutPutDF, K1_K2Mfolder, K2_K2Mfolder
 
-
-
-
-
-
-
-
-
-
-
-
-
