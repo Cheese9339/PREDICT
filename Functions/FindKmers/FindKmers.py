@@ -61,7 +61,7 @@ def main(features = "gene", pThreshold = 0.01, alg = "RandomForest", up_stream =
     #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
         ## 6. Find enriches from train_fasta
     print("Find_Enriches...")
-    Find_Enriches.main(new_folder, pThreshold=0.01)
+    Find_Enriches.main(new_folder, pThreshold=pThreshold)
     print("Find_Enriches Done!")
     print("=======================================================")
     #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
