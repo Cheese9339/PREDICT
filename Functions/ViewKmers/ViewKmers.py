@@ -12,13 +12,13 @@ from Functions.ViewKmers.Packages import GetSequencesNKmers
 from Functions.ViewKmers.Packages import PlotKmer
 
 
-def main(round, features = "gene", up_stream = 1000, down_stream = 500):
+def main(features = "gene", up_stream = 1000, down_stream = 500):
     if 'round' in st.session_state:
         st.session_state.round += 1
     else:
         st.session_state.round = 0
 
-    if round == 0:
+    if st.session_state.round == 0:
         #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
             ## 1. Copy "ViewKmers" folder(in "Demanded_Data" folder, old folder) to "Result" folder's new folder ##
         print("Dealing_with_folders...")
@@ -63,4 +63,4 @@ def main(round, features = "gene", up_stream = 1000, down_stream = 500):
     #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#
 
 if __name__ == "__main__":
-    main(st.session_state.round)
+    main()

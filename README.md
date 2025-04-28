@@ -1,1 +1,1 @@
-For detailed instructions, please see the README: https://hackmd.io/@PKCheese/Hkeg0y91xg
+For detailed instructions, please see the README: https://hackmd.io/@PKCheese/PREDICT_README

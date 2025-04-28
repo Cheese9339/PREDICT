@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 sys.path.append('./Functions/FindKmers')
 sys.path.append('./Functions/Kmer2Motif')
 sys.path.append('./Functions/RanKmers')
